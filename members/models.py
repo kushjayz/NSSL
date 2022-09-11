@@ -1,0 +1,30 @@
+from django.db import models
+
+# Create your models here.
+class Member(models.Model):
+    memberId = models.CharField(max_length=200, null=True)
+    name = models.CharField(max_length=200, null=True)
+    gender = models.CharField(max_length=200, null=True)
+    dateOfBirth = models.CharField(max_length=200, null=True)
+    address = models.CharField(max_length=200, null=True)
+    area = models.CharField(max_length=200, null=True)
+    houseAptNo = models.CharField(max_length=200, null=True)
+    lane = models.CharField(max_length=200, null=True)
+    road = models.CharField(max_length=200, null=True)
+    subArea = models.CharField(max_length=200, null=True)
+    city = models.CharField(max_length=200, null=True)
+    district = models.CharField(max_length=200, null=True)
+    province = models.CharField(max_length=200, null=True)
+    occupation = models.CharField(max_length=200, null=True)
+    contactNumber = models.CharField(max_length=200, null=True)
+    secondaryContactNumber = models.CharField(max_length=200, null=True)
+    gojukaiStatus = models.CharField(max_length=200, null=True)
+    gojukaiReceivedDate = models.CharField(max_length=200, null=True)
+    gojukaiVenue = models.CharField(max_length=200, null=True)
+    gohonzonStatus = models.CharField(max_length=200, null=True)
+    gohonzonReceivedDate = models.CharField(max_length=200, null=True)
+    gohonzonVenue = models.CharField(max_length=200, null=True)
+    nameOftheSponsor = models.CharField(max_length=200, null=True)
+    addressOfSponsor = models.CharField(max_length=200, null=True)
+    sponsorContactNumber = models.CharField(max_length=200, null=True)
+

@@ -1,0 +1,81 @@
+{% extends 'common/main.html' %}
+
+{% block content %}
+<h1>Member list</h1>
+
+    {% if memberList %}
+        <table>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Date Of Birth<th>
+                <th>Address<th>
+            <!-- <th>Area</th>
+                <th>House/Apt Number</th>
+                <th>Lane</th>
+                <th>Road</th>
+                <th>Sub Area</th>
+                <th>City</th>
+                <th>District</th>
+                <th>Province</th> -->
+                <th>Occupation</th>
+                <th>Contact Number</th>
+
+                {% comment %} <th>Gojukai Status</th>
+                <th>Gojukai Received Date</th>
+                <th>Gojukai Venue</th> {% endcomment %}
+
+                {% comment %} <th>Gohonzon Status</th>
+                <th>Gohonzon Received Date</th>
+                <th>Gohonzon Venue</th> {% endcomment %}
+                <!--<th>Name of the Sponsor</th>
+                <th>Address</th>
+                <th>Contact Numbers</th>-->
+                <th>Update</th>
+                <th>Delete</th>
+                <th>View More<th>
+            </tr>
+
+            {% for member in memberList %}
+            <tr>
+                <td>{{member.memberId}}</td>
+                <td>{{member.name}}</td>
+                <td>{{member.gender}}</td>
+                <td>{{member.dateOfBirth}}<td>
+                <td>{{member.address}}<td>
+                {% comment %} <td>{{member.area}}</td>
+                <td>{{member.houseAptNo}}</td>
+                <td>{{member.lane}}</td>
+                <td>{{member.road}}</td>
+                <td>{{member.subArea}}</td>
+                <td>{{member.city}}</td>
+                <td>{{member.district}}</td>
+                <td>{{member.province}}</td> {% endcomment %}
+                <td>{{member.occupation}}</td>
+                <td>{{member.contactNumber}}</td>
+
+                {% comment %} <td>{{member.gojukaiStatus}}</td>
+                <td>{{member.gojukaiReceivedDate}}</td>
+                <td>{{member.gojukaiVenue}}</td> {% endcomment %}
+
+                {% comment %} <td>{{member.gohonzonStatus}}</td>
+                <td>{{member.gohonzonReceivedDate}}</td>
+                <td>{{member.gohonzonVenue}}</td> {% endcomment %}
+
+                {% comment %} <td>{{member.nameOftheSponsor}}</td>
+                <td>{{member.address}}</td>
+                <td>{{member.contactNumbers}}</td> {% endcomment %}
+                <td><a href="{%  url 'member-details' member.id  %}">Update</a></td>
+                <td><a href="{%  url 'member-delete' member.id  %}">Delete</a></td>
+                <td><a href="{%  url 'member-details' member.id  %}">View</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h1>Total Member Count {{membercount}}</h1>
+    {% else  %}
+        <h1> NO DATA AVAILABLE OR SERVER DOWN</h1>
+    {% endif %}
+
+{% endblock %}
