@@ -15,6 +15,7 @@
     
     {% comment %} <link rel="stylesheet" href="Home.css" media="screen"> {% endcomment %}
     <link rel="stylesheet" href="{% static '/css/common/Home.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static '/css/member/Member-Profile.css' %}" media="screen">
 
     {% comment %} <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script> {% endcomment %}
     <script class="u-script" type="text/javascript" src="{% static '/js/common/jquery.js' %}" defer=""></script>
@@ -31,11 +32,11 @@
   <body class="u-body"><header class=" u-clearfix u-header u-section-row-container" id="sec-9127"><div class="u-section-rows">
         <div class="u-clearfix u-grey-40 u-section-row u-section-row-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" id="sec-6dc2">
           <div class="u-clearfix u-sheet u-sheet-1">
-            <a class="u-image u-logo u-image-1" data-image-width="512" data-image-height="512">
+            <a href="{%  url 'home' %}" class="u-image u-logo u-image-1" data-image-width="512" data-image-height="512">
               {% comment %} <img src="images/25694.png" class="u-logo-image u-logo-image-1" data-image-width="123.05"> {% endcomment %}
               <img src="{% static 'images/25694.png' %}" class="u-logo-image u-logo-image-1" data-image-width="123.05">
             </a>
-            <a class="u-image u-logo u-image-2" data-image-width="480" data-image-height="480">
+            <a href="{%  url 'home' %}" class="u-image u-logo u-image-2" data-image-width="480" data-image-height="480">
               <img src="{% static 'images/logo.jpeg'%}" class="u-logo-image u-logo-image-2" data-image-width="123.05">
               {% comment %} <img src="images/WhatsAppImage2022-09-05at08.52.321.jpeg" class="u-logo-image u-logo-image-2" data-image-width="123.05"> {% endcomment %}
             </a>

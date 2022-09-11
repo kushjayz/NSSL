@@ -22,3 +22,6 @@ def deleteMember(Request, memberId):
     member = Member.objects.get(id = memberId).delete()
     return redirect('member-list')
 
+def navigateToMemberSearch(Request):
+    return render(Request, 'members/member-profile.html')
+
