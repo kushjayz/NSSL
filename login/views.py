@@ -28,6 +28,6 @@ def verifyLogin(request):
 
 def home(Request):
     if isUserLoggedIn(Request) == True:
-        return render(Request, 'login/home.html')
+        return render(Request, 'common/home.html')
     else:
         return redirectToLogin(Request)
