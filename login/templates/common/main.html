@@ -14,8 +14,12 @@
     <link rel="stylesheet" href="{% static '/css/common/nicepage.css' %}" media="screen">
     
     {% comment %} <link rel="stylesheet" href="Home.css" media="screen"> {% endcomment %}
+    {% if memberPage %}
+    <link rel="stylesheet" href="{% static '/css/member/Member-Page.css' %}" media="screen">
+    {% else %}
     <link rel="stylesheet" href="{% static '/css/common/Home.css' %}" media="screen">
     <link rel="stylesheet" href="{% static '/css/member/Member-Profile.css' %}" media="screen">
+    {% endif %}
 
     {% comment %} <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script> {% endcomment %}
     <script class="u-script" type="text/javascript" src="{% static '/js/common/jquery.js' %}" defer=""></script>
@@ -42,6 +46,15 @@
             </a>
           </div>
         </div>
+
+        <div class="u-align-center u-black u-section-row u-section-row-2" id="sec-9411">
+          <div class="u-clearfix u-sheet u-valign-middle u-sheet-2">
+            {% if title %}
+              <h1 class="u-text u-text-body-alt-color u-text-1">{{title}}</h1>
+              {% else %}
+              <h1 class="u-text u-text-body-alt-color u-text-1">Member Profile</h1>
+            {% endif %}
+          </div>
         {% block content %}
 
         <!-- Content  -->

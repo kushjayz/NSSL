@@ -1,3 +1,4 @@
+from turtle import title
 from django.shortcuts import render, redirect
 
 from login.models import isUserLoggedIn, redirectToLogin
@@ -24,4 +25,7 @@ def deleteMember(Request, memberId):
 
 def navigateToMemberSearch(Request):
     return render(Request, 'members/member-profile.html')
+
+def navigateToMemberPage(Request):
+    return render(Request, 'members/member-page.html', {'memberPage': True})
 

@@ -9,4 +9,5 @@ urlpatterns = [
     # path('member-search/<str:memberId>', views.viewMember, name='member-details'),
     # path('member-delete/<str:memberId>', views.deleteMember, name='member-delete'),
     path('navigate-to-search', views.navigateToMemberSearch, name='navigate-to-search'),
+    path('navigate-to-member-details', views.navigateToMemberPage, name='navigate-to-member-details'),
 ]
