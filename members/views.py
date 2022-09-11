@@ -6,12 +6,6 @@ from .models import *
 def login(Request):
     return render(Request, 'login/login.html')
 
-def home(Request):
-    if isUserLoggedIn(Request) == True:
-        return render(Request, 'login/home.html')
-    else:
-        return redirectToLogin(Request)
-
 def members(Request):
     memberList = Member.objects.all()
     context = {

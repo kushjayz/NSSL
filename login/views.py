@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Admin
+from .models import Admin, isUserLoggedIn, redirectToLogin
 from django.contrib import messages
 
 # Create your views here.
@@ -25,3 +25,9 @@ def verifyLogin(request):
     if error:
         messages.info(request,'Error has occured! No POST values ')
         return redirect('login')
+
+def home(Request):
+    if isUserLoggedIn(Request) == True:
+        return render(Request, 'login/home.html')
+    else:
+        return redirectToLogin(Request)
