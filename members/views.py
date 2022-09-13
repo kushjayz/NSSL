@@ -1,4 +1,5 @@
 from msilib.schema import Error
+from turtle import title
 from django.shortcuts import render, redirect
 from django.contrib import messages
 
@@ -22,7 +23,13 @@ def viewMember(Request, memberId):
 
 def deleteMember(Request, memberId):
     member = Member.objects.get(id = memberId).delete()
-    return redirect('member-list')
+    if member:
+        messages.info('Member with ID ' + memberId + ' deleted successfully')
+        return redirect('home')
+    else:
+        messages.info('Error occured when removing member!')
+        messages.info('Please try again !')
+        return redirect('home')
 
 def navigateToMemberSearch(Request):
     return render(Request, 'members/member-profile.html')
@@ -30,8 +37,11 @@ def navigateToMemberSearch(Request):
 def navigateToMemberPage(Request):
     return render(Request, 'members/member-page.html', {'memberPage': True})
 
-def  addMember(Request):
-     return Member.addUpdateMember(Request)
+def addMember(Request):
+    return Member.addUpdateMember(Request)
+
+def performSearchQuery(Request):
+    return Member.searchMember(Request)
 
 
 
