@@ -1,5 +1,6 @@
-from turtle import title
+from msilib.schema import Error
 from django.shortcuts import render, redirect
+from django.contrib import messages
 
 from login.models import isUserLoggedIn, redirectToLogin
 from .models import *
@@ -28,4 +29,9 @@ def navigateToMemberSearch(Request):
 
 def navigateToMemberPage(Request):
     return render(Request, 'members/member-page.html', {'memberPage': True})
+
+def  addMember(Request):
+     return Member.addUpdateMember(Request)
+
+
 

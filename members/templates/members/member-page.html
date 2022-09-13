@@ -5,118 +5,118 @@
 
 {% block content %}
 
+<style>
+  label {
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+</style>
     <section class="u-clearfix u-section-1" id="sec-4df9">
-      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+      
+      
+      
+      <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-align-left u-black u-border-3 u-border-grey-40 u-container-style u-group u-radius-30 u-shape-round u-group-1">
-          <div class="u-container-layout u-container-layout-1">
-            <div class="u-container-style u-group u-group-2">
-              <div class="u-container-layout u-container-layout-2">
-                <h5 class="u-text u-text-default u-text-1">Membership Number<span style="font-size: 1.25rem;"></span>
-                </h5>
-                <h5 class="u-text u-text-default u-text-2">Full Name</h5>
-                <h5 class="u-text u-text-default u-text-3">Phone Number</h5>
-                <h5 class="u-text u-text-default u-text-4">Passport/NIC</h5>
-                <h5 class="u-text u-text-default u-text-5">Address</h5>
-                <h5 class="u-text u-text-default u-text-6">Disabilities</h5>
-                <h5 class="u-text u-text-default u-text-7">Occupation</h5>
-                <h5 class="u-text u-text-default u-text-8">Emergency Contact</h5>
-                <h5 class="u-text u-text-9">Emergency Contact No.</h5>
-                <h5 class="u-text u-text-default u-text-10">Gojukai Status</h5>
-                <h5 class="u-text u-text-default u-text-11">Gojukai Date</h5>
-                <h5 class="u-text u-text-default u-text-12">Gojukai Venue</h5>
-                <h5 class="u-text u-text-13">Sponsor Membership No.</h5>
-                <h5 class="u-text u-text-default u-text-14">Sponsor Name</h5>
-                <h5 class="u-text u-text-15">Sponsor Relationship</h5>
-                <h5 class="u-text u-text-default u-text-16">Tozan history</h5>
-              </div>
-            </div>
-            <div class="u-form u-form-1">
-              <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
+          <div class="u-container-layout u-container-layout-1" style="background: gray;">
+            <div class="u-container-layout">
+                
+                
+              <div class="">
+              <form action="{% url 'add-member' %}" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;" redirect="true">
+                {% csrf_token %}
                 <div class="u-form-group u-form-name">
-                  <label for="name-6d59" class="u-form-control-hidden u-label"></label>
-                  <input type="text" placeholder="Membership Number" id="name-6d59" name="membershipNumber" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29">
+                  <label for="name-6d59" class="u-label u-label-1">Membership Number</label>
+                  <input type="text" placeholder="Membership Number" id="name-6d59" name="membershipNumber" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" required>
                 </div>
                 <div class="u-form-group u-form-phone">
-                  <label for="email-6d59" class="u-form-control-hidden u-label"></label>
-                  <input type="tel" placeholder="Full Name" id="email-6d59" name="fullName" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29">
+                  <label for="email-6d59" class="u-label u-label-2">Full Name</label>
+                  <input type="tel" placeholder="Full Name" id="email-6d59" name="fullName" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" required>
                 </div>
                 <div class="u-form-group">
-                  <label for="message-6d59" class="u-form-control-hidden u-label"></label>
-                  <input placeholder="Phone Number" rows="4" cols="50" id="message-6d59" name="phoneNumber" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" type="text">
+                  <label for="message-6d59" class="u-label u-label-3">Phone Number</label>
+                  <input placeholder="Phone Number" rows="4" cols="50" id="message-6d59" name="phoneNumber" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" type="text" required>
                 </div>
                 <div class="u-form-group u-form-group-4">
-                  <label for="text-c47a" class="u-form-control-hidden u-label"></label>
-                  <input type="text" placeholder="Passport/NIC" id="text-c47a" name="passportNic" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29">
+                  <label for="text-c47a" class="u-label u-label-4">Passport/NIC</label>
+                  <input type="text" placeholder="Passport/NIC" id="text-c47a" name="passportNic" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" required>
                 </div>
                 <div class="u-form-group u-form-textarea u-form-group-5">
-                  <label for="textarea-4f09" class="u-form-control-hidden u-label"></label>
-                  <textarea rows="4" cols="50" id="textarea-4f09" name="address" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" placeholder="Address"></textarea>
+                  <label for="textarea-4f09" class="u-label u-label-5">Address</label>
+                  <textarea rows="4" cols="50" id="textarea-4f09" name="address" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" placeholder="Address" required></textarea>
                 </div>
                 <div class="u-form-group u-form-group-6">
-                  <label for="text-4216" class="u-form-control-hidden u-label"></label>
+                  <label for="text-4216" class="u-label u-label-6">Disabilities</label>
                   <input type="text" id="text-4216" name="disabilities" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" placeholder="Disabilities">
                 </div>
                 <div class="u-form-group u-form-group-7">
-                  <label for="text-fc06" class="u-form-control-hidden u-label"></label>
+                  <label for="text-fc06" class="u-label u-label-7">Occupation</label>
                   <input type="text" placeholder="Occupation" id="text-fc06" name="occupation" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29">
                 </div>
                 <div class="u-form-group u-form-group-8">
-                  <label for="text-7050" class="u-form-control-hidden u-label"></label>
-                  <input type="text" placeholder="Emergency Contact" id="text-7050" name="emergencyContact" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29">
+                  <label for="text-7050" class="u-label u-label-8">Emergency Contact</label>
+                  <input type="text" placeholder="Emergency Contact" id="text-7050" name="emergencyContact" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" required>
                 </div>
                 <div class="u-form-group u-form-group-9">
-                  <label for="text-fa7d" class="u-form-control-hidden u-label"></label>
-                  <input type="text" placeholder="Emergency Contact Number" id="text-fa7d" name="emergencyContactNumber" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29">
+                  <label for="text-fa7d" class="u-label u-label-9">Emergency Contact Number</label>
+                  <input type="text" placeholder="Emergency Contact Number" id="text-fa7d" name="emergencyContactNumber" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" required>
                 </div>
                 <div class="u-form-group u-form-group-10">
-                  <label for="text-7b82" class="u-form-control-hidden u-label"></label>
+                  <label for="text-7b82" class="u-label u-label-10">Gojukai Status</label>
                   <input type="text" placeholder="Gojukai Status" id="text-7b82" name="gojukaiStatus" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29">
                 </div>
                 <div class="u-form-date u-form-group u-form-group-11">
-                  <label for="date-fd2f" class="u-form-control-hidden u-label"></label>
+                  <label for="date-fd2f" class="u-label u-label-11">Gojukai Date</label>
                   <input type="date" placeholder="Gojukai Date" id="date-fd2f" name="gojukaiDate" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29">
                 </div>
                 <div class="u-form-group u-form-group-12">
-                  <label for="text-d569" class="u-form-control-hidden u-label"></label>
+                  <label for="text-d569" class="u-label u-label-12">Gojukai Venue</label>
                   <input type="text" id="text-d569" name="gojukaiVenue" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" placeholder="Gojukai Venue">
                 </div>
                 <div class="u-form-group u-form-group-13">
-                  <label for="text-dcc0" class="u-form-control-hidden u-label"></label>
-                  <input type="text" placeholder="Sponsor Membership No." id="text-dcc0" name="sponsorMembershipNo" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29">
+                  <label for="text-38ac" class="u-label u-label-13">Gohonzon Status</label>
+                  <input type="text" placeholder="Gohonzon Status" id="text-38ac" name="gohonzonStatus" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29">
                 </div>
-                <div class="u-form-group u-form-group-14">
-                  <label for="text-942f" class="u-form-control-hidden u-label"></label>
-                  <input type="text" placeholder="Sponsor Name" id="text-942f" name="sponsorName" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29">
+                <div class="u-form-date u-form-group u-form-group-14">
+                  <label for="text-f49f" class="u-label u-label-14">Gohonzon Date</label>
+                  <input type="date" placeholder="Gohonzon Date" id="text-f49f" name="gohonzonDate" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29">
                 </div>
                 <div class="u-form-group u-form-group-15">
-                  <label for="text-b8f5" class="u-form-control-hidden u-label"></label>
-                  <input type="text" placeholder="Sponsor Relationship" id="text-b8f5" name="sponsorRelationship" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29">
+                  <label for="text-6d0c" class="u-label u-label-15">Gohonzon Venue</label>
+                  <input type="text" placeholder="Gohonzon Venue" id="text-6d0c" name="gohonzonVenue" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29">
                 </div>
                 <div class="u-form-group u-form-group-16">
-                  <label for="text-e592" class="u-form-control-hidden u-label"></label>
+                  <label for="text-dcc0" class="u-label u-label-16">Sponsor Membership No.</label>
+                  <input type="text" placeholder="Sponsor Membership No." id="text-dcc0" name="sponsorMembershipNo" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29">
+                </div>
+                <div class="u-form-group u-form-group-17">
+                  <label for="text-942f" class="u-label u-label-17">Sponsor Name</label>
+                  <input type="text" placeholder="Sponsor Name" id="text-942f" name="sponsorName" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29">
+                </div>
+                <div class="u-form-group u-form-group-18">
+                  <label for="text-b8f5" class="u-label u-label-18">Sponsor Relationship</label>
+                  <input type="text" placeholder="Sponsor Relationship" id="text-b8f5" name="sponsorRelationship" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29">
+                </div>
+                <div class="u-form-group u-form-group-19">
+                  <label for="text-e592" class="u-label u-label-19">Tozan history</label>
                   <input type="text" placeholder="Tozan history" id="text-e592" name="tozanHistory" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29">
                 </div>
-                <div class="u-align-left u-form-group u-form-submit">
-                  <a href="#" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-1 u-hover-grey-50 u-radius-30 u-btn-1">Search</a>
-                  <input type="submit" value="submit" class="u-form-control-hidden">
+                
+                <div style="display: flex; flex-direction: row;">
+                  <input type="submit" value="SAVE" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-1 u-hover-grey-50 u-radius-30 u-btn-1">
+                  <div></div>
+                  <input type="submit" value="DELETE PROFILE" class="u-border-none u-btn u-btn-round u-button-style u-palette-2-base u-radius-50 u-btn-3 ">
+                  <input type="submit" value="EDIT PROFILE" class="u-border-none u-btn u-btn-round u-button-style u-palette-3-light-1 u-radius-50 u-btn-3">
                 </div>
-                <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
-                <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
-                <input type="hidden" value="" name="recaptchaResponse">
               </form>
             </div>
-            <div class="u-container-style u-group u-group-3">
-              <div class="u-container-layout">
-                <a href="https://nicepage.com/k/exam-html-templates" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-base u-palette-3-light-1 u-radius-50 u-btn-2">Edit Profile</a>
-                <a href="https://nicepage.com/k/exam-html-templates" class="u-border-none u-btn u-btn-round u-button-style u-palette-2-base u-radius-50 u-btn-3">DELETE profile</a>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>
+    
+    </div>
+    
     </section>
     <style class="u-overlap-style">.u-overlap:not(.u-sticky-scroll) .u-header {
 }</style>
 {% endblock %}
-  </body>
-</html>

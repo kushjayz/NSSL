@@ -10,4 +10,5 @@ urlpatterns = [
     # path('member-delete/<str:memberId>', views.deleteMember, name='member-delete'),
     path('navigate-to-search', views.navigateToMemberSearch, name='navigate-to-search'),
     path('navigate-to-member-details', views.navigateToMemberPage, name='navigate-to-member-details'),
+    path('add-member', views.addMember, name='add-member'),
 ]
