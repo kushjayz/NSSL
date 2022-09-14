@@ -6,17 +6,6 @@ from django.contrib import messages
 from login.models import isUserLoggedIn, redirectToLogin
 from .models import *
 # Create your views here.
-def login(Request):
-    return render(Request, 'login/login.html')
-
-def members(Request):
-    memberList = Member.objects.all()
-    context = {
-        'memberList': memberList,
-        'membercount': memberList.count(),
-    }
-    return render(Request, 'members/member-list.html', context)
-
 def viewMember(Request, memberId):
     member = Member.objects.get(id = memberId)
     return render(Request, 'members/member-details.html', { 'member': member })
@@ -38,6 +27,16 @@ def performSearchQuery(Request):
 
 def updateMember(Request):
     return Member.addUpdateMember(Request)
+
+def navigateToDatabase(Request):
+    memberList = Member.objects.all()
+    context = {
+        'memberList': memberList,
+        'membercount': memberList.count(),
+        'isDataBase': True,
+    }
+    return render(Request, 'members/member-database.html', context)
+
 
 
 

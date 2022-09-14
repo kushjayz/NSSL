@@ -1,0 +1,75 @@
+{% extends 'common/main.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+<style>
+  label {
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+</style>
+
+{% if messages %}
+<div class="alert success">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  {% for message in messages %}
+          <center>{{ message }}</center>
+  {% endfor %}
+</div>
+{% endif %}
+    <section class="u-align-center u-clearfix u-section-1" style="padding: 25px;" id="sec-1974">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-expanded-width u-table u-table-responsive u-table-1">
+          {% if memberList %}
+          <table class="u-table-entity u-table-entity-1" style="background: white;color: darkblue;">
+            <colgroup>
+              <col width="16.5%">
+              <col width="20%">
+              <col width="4.7%">
+              <col width="8.6%">
+              <col width="25%">
+              <col width="9%">
+              <col width="12.4%">
+              <col width="12.8%">
+            </colgroup>
+            <thead class="u-grey-70 u-table-header u-table-header-1" style="text-align: center;">
+              <tr style="height: 44px;">
+                <th class="u-table-cell">Member Number</th>
+                <th class="u-table-cell">Full Name</th>
+                <th class="u-table-cell">Gender</th>
+                <th class="u-table-cell">Date of Birth</th>
+                <th class="u-table-cell">Address</th>
+                <th class="u-table-cell">Phone Number</th>
+                <th class="u-table-cell">NIC/Passport Number</th>
+                <th class="u-table-cell">Action</th>
+              </tr>
+            </thead>
+            <tbody class="u-table-body">
+              {% for member in memberList %}
+              <tr style="height: 25px;">
+                <td class="u-first-column u-grey-15 u-table-cell u-table-cell-9">{{member.memberId}}</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">{{member.name}}</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">{{member.gender}}</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">{{member.dateOfBirth}}</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">{{member.address}}</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">{{member.contactNumber}}</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">{{member.passportNic}}</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell"><a href="https://nicepage.com/c/industrial-website-templates" class="u-border-2 u-border-hover-palette-1-base u-border-palette-1-base u-btn u-btn-round u-button-style u-hover-palette-1-base u-none u-radius-50 u-btn-1">View</a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <p style="float: right;">Total Member Count {{membercount}}</p>
+          {% else  %}
+          <h1 > NO DATA AVAILABLE OR SERVER DOWN</h1>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+    <style class="u-overlap-style">.u-overlap:not(.u-sticky-scroll) .u-header {
+}</style>
+
+{% endblock %}
