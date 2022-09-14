@@ -57,7 +57,14 @@
                 <td class="u-border-1 u-border-grey-30 u-table-cell">{{member.address}}</td>
                 <td class="u-border-1 u-border-grey-30 u-table-cell">{{member.contactNumber}}</td>
                 <td class="u-border-1 u-border-grey-30 u-table-cell">{{member.passportNic}}</td>
-                <td class="u-border-1 u-border-grey-30 u-table-cell"><a href="https://nicepage.com/c/industrial-website-templates" class="u-border-2 u-border-hover-palette-1-base u-border-palette-1-base u-btn u-btn-round u-button-style u-hover-palette-1-base u-none u-radius-50 u-btn-1">View</a></td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">
+                  <form action="{% url 'member-search' %}" method="POST">
+                    <input type="hidden" name="membershipNumber" value="{{member.memberId}}">
+                    {% csrf_token %}
+                    <input type="submit" value="View" class="u-border-2 u-border-hover-palette-1-base u-border-palette-1-base u-btn u-btn-round u-button-style u-hover-palette-1-base u-none u-radius-50 u-btn-1">
+                  </form>
+                  {% comment %} <a href="https://nicepage.com/c/industrial-website-templates" class="u-border-2 u-border-hover-palette-1-base u-border-palette-1-base u-btn u-btn-round u-button-style u-hover-palette-1-base u-none u-radius-50 u-btn-1">View</a> {% endcomment %}
+                </td>
               </tr>
               {% endfor %}
             </tbody>
