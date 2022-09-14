@@ -11,17 +11,25 @@
     text-transform: uppercase;
   }
 </style>
+
+{% if messages %}
+<div class="alert success">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  {% for message in messages %}
+          <center>{{ message }}</center>
+  {% endfor %}
+</div>
+{% endif %}
+
     <section class="u-clearfix u-section-1" id="sec-4df9">
-      
-      
-      
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-align-left u-black u-border-3 u-border-grey-40 u-container-style u-group u-radius-30 u-shape-round u-group-1">
           <div class="u-container-layout u-container-layout-1" style="background: gray;">
             <div class="u-container-layout">
               {% if member %}
-                <form action="#" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;" redirect="true">
+                <form action="{% url 'update-member' %}" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;" redirect="true">
                   {% csrf_token %}
+                    <input type="hidden" name="id" value="{{member.id}}">
                   <div class="u-form-group u-form-name">
                     <label for="name-6d59" class="u-label u-label-1">Membership Number</label>
                     <input type="text" placeholder="Membership Number" id="name-6d59" name="membershipNumber" value="{{member.memberId}}"class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" readonly>
@@ -33,6 +41,14 @@
                   <div class="u-form-group">
                     <label for="message-6d59" class="u-label u-label-3">Phone Number</label>
                     <input placeholder="Phone Number" rows="4" cols="50" id="message-6d59" name="phoneNumber" value="{{member.contactNumber}}" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" type="text" required>
+                  </div>
+                  <div class="u-form-group">
+                    <label for="message-6d59" class="u-label u-label-3">Gender</label>
+                    <input placeholder="Gender" rows="4" cols="50" id="message-6d59" name="gender" value="{{member.gender}}" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" type="text">
+                  </div>
+                  <div class="u-form-date u-form-group u-form-group-14">
+                    <label for="text-f49f" class="u-label u-label-14">Date of birth</label>
+                    <input type="date" placeholder="Date of birth" id="text-f49f" name="dateOfBirth" value="{{member.dateOfBirth}}" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" required>
                   </div>
                   <div class="u-form-group u-form-group-4">
                     <label for="text-c47a" class="u-label u-label-4">Passport/NIC</label>
@@ -100,8 +116,8 @@
                   </div>
                   
                   <div style="display: flex; flex-direction: row;">
-                    <a href="https://nicepage.com/k/exam-html-templates" class="u-border-none u-btn u-btn-round u-button-style u-palette-2-base u-radius-50 u-btn-3 "> EDIT PROFILE</a>
-                    <a href="{%  url 'member-delete' member.id  %}" class="u-border-none u-btn u-btn-round u-button-style u-palette-3-light-1 u-radius-50 u-btn-3"> DELETE PROFILE </a>
+                    <input type="submit" value="EDIT PROFILE" class="u-border-none u-btn u-btn-round u-button-style u-palette-2-base u-radius-50 u-btn-3"></input>
+                    <a href="{%  url 'member-delete' member.id  %}" onclick="return confirm('Are you sure you want to delete the user ? This action cannot be reversed!')" class="u-border-none u-btn u-btn-round u-button-style u-palette-3-light-1 u-radius-50 u-btn-3"> DELETE PROFILE </a>
                   </div>
                 </form>
               {% else %}
@@ -119,13 +135,21 @@
                     <label for="message-6d59" class="u-label u-label-3">Phone Number</label>
                     <input placeholder="Phone Number" rows="4" cols="50" id="message-6d59" name="phoneNumber" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" type="text" required>
                   </div>
+                  <div class="u-form-group">
+                    <label for="message-6d59" class="u-label u-label-3">Gender</label>
+                    <input placeholder="Gender" rows="4" cols="50" id="message-6d59" name="gender" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" type="text">
+                  </div>
+                  <div class="u-form-date u-form-group u-form-group-14">
+                    <label for="text-f49f" class="u-label u-label-14">Date of birth</label>
+                    <input type="date" placeholder="Date of birth" id="text-f49f" name="dateOfBirth" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" required>
+                  </div>
                   <div class="u-form-group u-form-group-4">
                     <label for="text-c47a" class="u-label u-label-4">Passport/NIC</label>
-                    <input type="text" placeholder="Passport/NIC" id="text-c47a" name="passportNic" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" required>
+                    <input type="text" placeholder="Passport/NIC" id="text-c47a" name="passportNic" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29">
                   </div>
                   <div class="u-form-group u-form-textarea u-form-group-5">
                     <label for="textarea-4f09" class="u-label u-label-5">Address</label>
-                    <textarea rows="4" cols="50" id="textarea-4f09" name="address" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" placeholder="Address" required></textarea>
+                    <textarea rows="4" cols="50" id="textarea-4f09" name="address" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" placeholder="Address"></textarea>
                   </div>
                   <div class="u-form-group u-form-group-6">
                     <label for="text-4216" class="u-label u-label-6">Disabilities</label>
@@ -136,7 +160,7 @@
                     <input type="text" placeholder="Occupation" id="text-fc06" name="occupation" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29">
                   </div>
                   <div class="u-form-group u-form-group-8">
-                    <label for="text-7050" class="u-label u-label-8">Emergency Contact</label>
+                    <label for="text-7050" class="u-label u-label-8">Emergency Contact Name</label>
                     <input type="text" placeholder="Emergency Contact" id="text-7050" name="emergencyContact" class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-radius-29" required>
                   </div>
                   <div class="u-form-group u-form-group-9">

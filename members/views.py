@@ -22,14 +22,7 @@ def viewMember(Request, memberId):
     return render(Request, 'members/member-details.html', { 'member': member })
 
 def deleteMember(Request, memberId):
-    member = Member.objects.get(id = memberId).delete()
-    if member:
-        messages.info('Member with ID ' + memberId + ' deleted successfully')
-        return redirect('home')
-    else:
-        messages.info('Error occured when removing member!')
-        messages.info('Please try again !')
-        return redirect('home')
+    return Member.deleteMember(Request, memberId)
 
 def navigateToMemberSearch(Request):
     return render(Request, 'members/member-profile.html')
@@ -42,6 +35,9 @@ def addMember(Request):
 
 def performSearchQuery(Request):
     return Member.searchMember(Request)
+
+def updateMember(Request):
+    return Member.addUpdateMember(Request)
 
 
 

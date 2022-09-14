@@ -12,4 +12,5 @@ urlpatterns = [
     path('navigate-to-member-details', views.navigateToMemberPage, name='navigate-to-member-details'),
     path('member-search', views.performSearchQuery, name='member-search'),
     path('add-member', views.addMember, name='add-member'),
+    path('update-member', views.updateMember, name='update-member'),
 ]
