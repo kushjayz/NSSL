@@ -23,6 +23,6 @@ def redirectToLogin(request, *args, **kwargs):
             messages.info(request, msg)
         return redirect('login')
     else:
-        messages.info(request,'User session failed, Please login')
+        messages.info(request,'User session failed, Please login again')
         return redirect('login')
 

@@ -7,35 +7,59 @@ from login.models import isUserLoggedIn, redirectToLogin
 from .models import *
 # Create your views here.
 def viewMember(Request, memberId):
-    member = Member.objects.get(id = memberId)
-    return render(Request, 'members/member-details.html', { 'member': member })
+    if isUserLoggedIn(Request) == True:
+        member = Member.objects.get(id = memberId)
+        return render(Request, 'members/member-details.html', { 'member': member })
+    else:
+        return redirectToLogin(Request)
 
 def deleteMember(Request, memberId):
-    return Member.deleteMember(Request, memberId)
+    if isUserLoggedIn(Request) == True:
+        return Member.deleteMember(Request, memberId)
+    else:
+        return redirectToLogin(Request)
 
 def navigateToMemberSearch(Request):
-    return render(Request, 'members/member-profile.html')
+    if isUserLoggedIn(Request) == True:
+        return render(Request, 'members/member-profile.html')
+    else:
+        return redirectToLogin(Request)
 
 def navigateToMemberPage(Request):
-    return render(Request, 'members/member-page.html', {'memberPage': True})
+    if isUserLoggedIn(Request) == True:
+        return render(Request, 'members/member-page.html', {'memberPage': True})
+    else:
+        return redirectToLogin(Request)
 
 def addMember(Request):
-    return Member.addUpdateMember(Request)
+    if isUserLoggedIn(Request) == True:
+        return Member.addUpdateMember(Request)
+    else:
+        return redirectToLogin(Request)
 
 def performSearchQuery(Request):
-    return Member.searchMember(Request)
+    if isUserLoggedIn(Request) == True:
+        return Member.searchMember(Request)
+    else:
+        return redirectToLogin(Request)
 
 def updateMember(Request):
-    return Member.addUpdateMember(Request)
+    if isUserLoggedIn(Request) == True:
+        return Member.addUpdateMember(Request)
+    else:
+        return redirectToLogin(Request)
 
 def navigateToDatabase(Request):
-    memberList = Member.objects.all()
-    context = {
-        'memberList': memberList,
-        'membercount': memberList.count(),
-        'isDataBase': True,
-    }
-    return render(Request, 'members/member-database.html', context)
+    if isUserLoggedIn(Request) == True:
+        memberList = Member.objects.all()
+        context = {
+            'memberList': memberList,
+            'membercount': memberList.count(),
+            'isDataBase': True,
+        }
+        return render(Request, 'members/member-database.html', context)
+    else:
+        return redirectToLogin(Request)
 
 
 
