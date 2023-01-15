@@ -1,8 +1,4 @@
-from msilib.schema import Error
-from turtle import title
-from django.shortcuts import render, redirect
-from django.contrib import messages
-
+from django.shortcuts import render
 from login.models import isUserLoggedIn, redirectToLogin
 from .models import *
 # Create your views here.
